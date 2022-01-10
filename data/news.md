@@ -1,6 +1,8 @@
 <!--- News -->
 
-Instrumentkontroll AB är din partner i reparation, underhållsservice samt kalibrering av elektriska mätinstrument.
+Välkommen till Instrumentkontroll AB!
+
+Instrumentkontroll AB – Företagets inriktning är reparation, underhållsservice samt kalibrering av elektriska mätinstrument.
 
 <!--- About -->
 
