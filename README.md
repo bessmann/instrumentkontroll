@@ -1,9 +1,9 @@
 # instrumentkontroll
 
-![GitHub last commit](https://img.shields.io/github/last-commit/seetee/docker)
-![GitHub repo size](https://img.shields.io/github/repo-size/seetee/docker)
-![GitHub release](https://img.shields.io/github/v/release/seetee/docker)
-![GitHub contributors](https://img.shields.io/github/contributors/seetee/docker)
+![GitHub last commit](https://img.shields.io/github/last-commit/seetee/instrumentkontroll)
+![GitHub repo size](https://img.shields.io/github/repo-size/seetee/instrumentkontroll)
+![GitHub release](https://img.shields.io/github/v/release/seetee/instrumentkontroll)
+![GitHub contributors](https://img.shields.io/github/contributors/seetee/instrumentkontroll)
 
 A suggestion for the web page instrumentkontroll.se.
 
