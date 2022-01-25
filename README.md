@@ -22,6 +22,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 
 Thanks to the following people who have contributed to this project:
 
+* [@henriksonnergard](https://github.com/henriksonnergard)
 * [@seetee](https://github.com/seetee)
 
 If you want to contact me you can reach me on Twitter @alltinomit.
