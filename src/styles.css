@@ -1,0 +1,81 @@
+/* Before anything, load Andy Bell's modern CSS Reset */
+@import url("andy-bells-modern-reset.css");
+/* Then load Adam Argyle's Open Props */
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/colors-hsl.min.css";
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@200;400;700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root{
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-sans: 'IBM Plex Sans', sans-serif;
+}
+body {
+    color: var(--gray-1);
+    font-family: var(--font-sans);
+}
+.main-grid {
+    display: grid;
+    grid-template-areas:
+        "header main"
+    ;
+    grid-template-columns: var(--size-13) auto;
+    height: 100vh;
+}
+header {
+    align-items: center;
+    background-color: var(--indigo-12);
+    display: flex;
+    flex-direction: column;
+    padding: var(--size-5);
+    grid-area: header;
+}
+.logo {
+    aspect-ratio: 1/1;
+    background-color: hsl(var(--gray-0-hsl) / 10%);
+    border-radius: var(--size-3);
+    padding: var(--size-3);
+    width: 100%;
+}
+nav {
+
+}
+main {
+    background-attachment: fixed;
+    background-image: url("images/martin-Ou2ukfMBrVE-unsplash.jpg");
+    background-position: top center;
+    background-size: cover;
+    grid-area: main;
+    position: relative;
+}
+main::after {
+    background-blend-mode: color-dodge;
+    background-color: hsl(var(--gray-12-hsl) / 90%);
+    content: "";
+    opacity: 0.2;
+    background-image: 
+        linear-gradient(var(--gray-5) 2.8000000000000003px,transparent 2.8000000000000003px),
+        linear-gradient(90deg, var(--gray-5) 2.8000000000000003px, transparent 2.8000000000000003px),
+        linear-gradient(var(--gray-5) 1.4000000000000001px, transparent 1.4000000000000001px),
+        linear-gradient(90deg, var(--gray-5) 1.4000000000000001px, transparent 1.4000000000000001px)
+        ;
+    background-size: 70px 70px, 70px 70px, 14px 14px, 14px 14px;
+    background-position: -2.8000000000000003px -2.8000000000000003px, -2.8000000000000003px -2.8000000000000003px, -1.4000000000000001px -1.4000000000000001px, -1.4000000000000001px -1.4000000000000001px;
+    position: absolute;
+    inset: 0;
+}
+section#start, section#om-oss {
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+}
+section#start {
+    flex-direction: column-reverse;
+    padding: var(--size-fluid-5) var(--size-fluid-3);
+}
+section#start h1 {
+    font-size: var(--font-size-8);
+    font-weight: 400;
+    max-width: 40ch;
+}
