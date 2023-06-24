@@ -1,9 +1,9 @@
 # instrumentkontroll
 
-![GitHub last commit](https://img.shields.io/github/last-commit/seetee/instrumentkontroll)
-![GitHub repo size](https://img.shields.io/github/repo-size/seetee/instrumentkontroll)
-![GitHub release](https://img.shields.io/github/v/release/seetee/instrumentkontroll)
-![GitHub contributors](https://img.shields.io/github/contributors/seetee/instrumentkontroll)
+![GitHub last commit](https://img.shields.io/github/last-commit/bessmann/instrumentkontroll)
+![GitHub repo size](https://img.shields.io/github/repo-size/bessmann/instrumentkontroll)
+![GitHub release](https://img.shields.io/github/v/release/bessmann/instrumentkontroll)
+![GitHub contributors](https://img.shields.io/github/contributors/bessmann/instrumentkontroll)
 
 A suggestion for the web page instrumentkontroll.se.
 
@@ -27,4 +27,4 @@ Thanks to the following people who have contributed to this project:
 
 ## License
 
-![Code License](https://img.shields.io/github/license/seetee/instrumentkontroll)
+![Code License](https://img.shields.io/github/license/bessmann/instrumentkontroll)
