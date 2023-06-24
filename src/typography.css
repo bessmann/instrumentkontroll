@@ -1,0 +1,65 @@
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1920,20,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+    --step--2: clamp(0.63rem, calc(0.71rem + -0.07vw), 0.69rem);
+    --step--1: clamp(0.83rem, calc(0.82rem + 0.05vw), 0.88rem);
+    --step-0: clamp(1.00rem, calc(0.95rem + 0.25vw), 1.25rem);
+    --step-1: clamp(1.20rem, calc(1.09rem + 0.57vw), 1.77rem);
+    --step-2: clamp(1.44rem, calc(1.23rem + 1.06vw), 2.50rem);
+    --step-3: clamp(1.73rem, calc(1.37rem + 1.81vw), 3.53rem);
+    --step-4: clamp(2.07rem, calc(1.49rem + 2.92vw), 5.00rem);
+    --step-5: clamp(2.49rem, calc(1.57rem + 4.58vw), 7.07rem);
+  }
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: var(--step-0);
+    line-height: var(--font-lineheight-3);
+}
+
+h1 {
+    font-size: var(--step-5);
+    letter-spacing: var(--font-letterspacing-0);
+    line-height: var(--font-lineheight-00);
+}
+h2 {
+    font-size: var(--step-4);
+    line-height: var(--font-lineheight-0);
+}
+h3 {
+    font-size: var(--step-3);
+    line-height: var(--font-lineheight-1);
+}
+h4 {
+    font-size: var(--step-2);
+    line-height: var(--font-lineheight-2);
+}
+h5 {
+    font-size: var(--step-1);
+    line-height: var(--font-lineheight-2);
+}
+h6 {
+    font-size: var(--step-0);
+}
+.text-small {
+    font-size: var(--step--1);
+}
+.text-xs {
+    font-size: var(--step--2);
+}
+p:not(:last-child) {
+    margin-block-end: var(--step-0);
+}
+dt {
+    font-weight: 700;
+}
+dd {
+    margin-inline-start: var(--size-3);
+}
+.text-guides {
+    margin-inline: auto;
+    max-width: 70ch;
+}
