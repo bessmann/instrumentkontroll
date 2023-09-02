@@ -1,22 +1,4 @@
-/* Before anything, load Andy Bell's modern CSS Reset */
-@import url("./andy-bells-modern-reset.css");
-/* Then load Adam Argyle's Open Props */
-@import "https://unpkg.com/open-props";
-@import "https://unpkg.com/open-props/colors-hsl.min.css";
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-/* Typography */
-@import url("./typography.css");
 
-:root{
-    --font-mono: 'IBM Plex Mono', monospace;
-    --font-sans: 'IBM Plex Sans', sans-serif;
-    --font-display: 'IBM Plex Sans Condensed', sans-serif;
-}
-body {
-    color: var(--gray-10);
-    font-family: var(--font-sans);
-}
 .main-grid {
     display: grid;
     grid-template-areas:
