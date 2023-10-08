@@ -28,10 +28,12 @@ h1 {
 h2 {
     font-size: var(--step-4);
     line-height: var(--font-lineheight-0);
+    margin-block-end: var(--step-0);
 }
 h3 {
-    font-size: var(--step-3);
+    font-size: var(--step-2);
     line-height: var(--font-lineheight-1);
+    margin-block: calc(var(--step-0) * 1.5) calc(var(--step-0) * 0.5);
 }
 h4 {
     font-size: var(--step-2);
@@ -58,6 +60,14 @@ dt {
 }
 dd {
     margin-inline-start: var(--size-3);
+}
+dd:not(:last-child) {
+    margin-block-end: var(--size-3);
+}
+hr {
+    border: 0;
+    border-block-start: 3px dashed white;
+    margin-block: var(--size-7);
 }
 .text-guides {
     margin-inline: auto;

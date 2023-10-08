@@ -1,39 +1,44 @@
 --- 
 interface Props {
-	title: string;
+	title: Instrumentkontroll Bessmann AB;
 }
 
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 	<head>
-		<meta charset="UTF-8" />
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="../../public/meta/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../public/meta/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../../public/meta/favicon-16x16.png">
+		<link rel="manifest" href="../../public/meta/site.webmanifest">
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	</head>
-	<body>
+	<body x-data="{ openMenu : false }" :class="openMenu ? 'overflow-hidden' : 'overflow-visible' "> 
+
+		<style>
+			[x-cloak] {
+			  display: none !important;
+			}
+		</style>
+
 		<slot />
+
+		<script src="https://web3forms.com/client/script.js" async defer></script>
 	</body>
 </html>
 <style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+		--font-mono: 'IBM Plex Mono', monospace;
+		--font-sans: 'IBM Plex Sans', sans-serif;
+		--font-display: 'IBM Plex Sans Condensed', sans-serif;
 	}
 </style>

@@ -1,268 +1,704 @@
 ---
 import Layout from '../layouts/Instrumentkontroll.astro';
+import { Image } from 'astro:assets';
+import logo from '../images/logo.svg';
+import kalibreringsKlistermarke from '../images/kalibreringsklistermärke.svg';
 ---
- 
+
 <Layout title="Instrumentkontroll Bessmann AB">
-	<div class="main-grid">
-        <header>
-            <nav>
-                <a href="#start"><img class="logo" src="images/logo.svg" alt="Instrumentkontroll"></a>
-                <ul class="primary-nav">
-                    <li>
-                        <a href="#om-oss" data-list-no="01">Om oss</a>
-                    </li>
-                    <li>
-                        <a href="#tjanster" data-list-no="02">Tjänster</a>
-                    </li>
-                    <li>
-                        <a href="#kunder" data-list-no="03">Kunder</a>
-                    </li>
-                    <li>
-                        <a href="#kontakt" data-list-no="04">Kontakt</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="main-content-wrapper">
-                <section id="start">
-                    <h1>Man blir som man mäter.</h1>
-                    <p>Vissa säger att vi på Instrumentkontroll är petimetrar. Och det kanske stämmer. Men när vi kalibrerar, reparerar och underhåller din verksamhets mätinstrument så känns det mest som en bra grej, faktiskt.</p>
-                </section>
-                <section id="om-oss">
-                    <h2>Om oss</h2>
-                    <div class="text-guides">
-                        <p>Instrumentkontroll grundades i augusti 1944 och vi har sedan dess varit en pålitlig aktör inom reparation, underhållsservice och kalibrering av elektriska mätinstrument samt materialprovningsutrustningar. Vår expertis sträcker sig över landbaserade och fartygsbaserade system. Vi bedriver vår verksamhet från vår egen verkstad, vilket ger oss fullständig kontroll över våra processer och resultat.</p>
-                        <p>Vi är stolta över att vara en auktoriserad servicestation för Honeywell Tanksystem Sa (CH). Vi erbjuder professionell underhållsservice och kalibrering av dragprovningsutrustning och materialprovningsutrustning från Lloyd Instruments Ltd (GB). Utöver detta har vi lång erfarenhet av att arbeta med en mängd olika fabrikat och utrustningar som finns på marknaden. Det inkluderar styr- och reglerutrustningar samt registrerade instrument och mätloop.</p>
-                        <p>Vi strävar alltid efter att erbjuda högkvalitativ service och nöjda kunder är vår främsta prioritet. Vår kompetenta personal är dedikerad till att lösa problem, utföra reparationer och genomföra kalibreringar med stor noggrannhet. Vi är stolta över vårt rykte för pålitlighet och professionalism inom branschen.</p>
-                        <p>Oavsett om du behöver reparation, underhåll eller kalibrering, kan du lita på Instrumentkontroll för att leverera pålitliga och effektiva lösningar. Vi ser fram emot att få hjälpa dig med dina behov inom elektriska mätinstrument och materialprovningsutrustningar.</p>
-                    </div>
-                </section>
-                <section id="tjanster">
-                    <h2>Tjänster</h2>
-                    <div class="text-guides">
-                        <h3>Vi utför reparationer av:</h3>
-                        <ul>
-                            <li>Elektriska mätinstrument (analoga, digitala, panel- och handinstrument)</li>
-                            <li>Temperaturmätutrustning</li>
-                            <li>Tryckmätutrustning</li>
-                            <li>Nivåmätutrustning</li>
-                            <li>Flödesmätutrustning</li>
-                            <li>Materialprovningsutrustning</li>
-                            <li>Varvtalsutrustning</li>
-                            <li>Registerande utrustning</li>
-                        </ul>
-                        <h3>Spårbar kalibrering enligt följande:</h3>
-                        <ul>
-                            <li>Spänning</li>
-                            <li>Ström</li>
-                            <li>Frekvens</li>
-                            <li>Resistans</li>
-                            <li>Temperatur</li>
-                            <li>Tryck</li>
-                            <li>Kraft</li>
-                        </ul>
-                    </div>
-                </section>
-                <section id="kunder">
-                    <h2>Kunder</h2>
-                    <div class="text-guides">
-                        <h3>Våra kunder finns inom följande branscher:</h3>
-                        <ul>
-                            <li>Petrokemisk industri</li>
-                            <li>Rederier och varvsindustri</li>
-                            <li>Plastindustri</li>
-                            <li>Verkstadsindustri</li>
-                            <li>Bilindustri</li>
-                            <li>Kraftdistribution</li>
-                            <li>Livsmedelsindustri</li>
-                        </ul>
-                    </div>
-                </section>
-                <section id="kontakt">
-                    <h2>Kontakt</h2>
-                    <div class="text-guides">
-                        <dl>
-                            <dt>Postadress</dt>
-                            <dd>Box 4076, 400 40 Göteborg</dd>
-                            <dt>Besök och leverans</dt>
-                            <dd>Varholmsgatan 1, 414 74 Göteborg</dd>
-                            <dt>E-post</dt>
-                            <dd>info@instrumentkontroll.se</dd>
-                            <dt>Telefon</dt>
-                            <dd>031-24 05 10</dd>
-                            <dt>Mobil</dt>
-                            <dd>076-17 23 063</dd>
-                        </dl>
-                    </div>
-                </section>
+  <div class="main-grid">
+    <header>
+      <button class="header__mobile-toggle" @click="openMenu = !openMenu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="mobile-toggle__icon--open"
+          :class="openMenu ? 'display-none' : 'display-block' "
+          x-cloak
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="mobile-toggle__icon--close"
+          :class="openMenu ? 'display-block' : 'display-none' "
+          x-cloak
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        <span
+          class="mobile-toggle__text--open"
+          :class="openMenu ? 'display-none' : 'display-block' "
+          x-cloak>Meny</span
+        >
+        <span
+          class="mobile-toggle__text--close"
+          :class="openMenu ? 'display-block' : 'display-none' "
+          x-cloak>Stäng</span
+        >
+      </button>
+      <nav>
+        <a href="#start">
+          <Image src={logo} class="logo" alt="Instrumentkontroll" />
+        </a>
+        <ul
+          class="nav__items"
+          :class="openMenu ? 'translate-y-0' : 'translate-y-full' "
+          x-cloak
+        >
+          <li>
+            <a href="#tjanster" data-list-no="01">Tjänster</a>
+          </li>
+          <li>
+            <a href="#kunder" data-list-no="02">Kunder</a>
+          </li>
+          <li>
+            <a href="#om-oss" data-list-no="03">Om oss</a>
+          </li>
+          <li>
+            <a href="#kontakt" data-list-no="04">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="main-content-wrapper">
+        <section id="start">
+          <h1>Man blir som man mäter.</h1>
+          <p>
+            Vissa säger att vi på Instrumentkontroll är petimetrar. Och det
+            kanske stämmer. Men när vi kalibrerar, reparerar och underhåller din
+            verksamhets mätinstrument så känns det mest som en bra grej,
+            faktiskt.
+          </p>
+        </section>
+        <section id="tjanster">
+          <h2>Tjänster</h2>
+          <div class="text-guides">
+            <p>
+              Vi är en certifierad Honeywell Tanksystem Service Station. Vi
+              erbjuder också Honeywells breda sortiment av gasmonitorer. Och
+              kalibrerar dem också, förstås.
+            </p>
+            <h3>Vi utför reparationer av:</h3>
+            <ul>
+              <li>
+                Elektriska mätinstrument (analoga, digitala, panel- och
+                handinstrument)
+              </li>
+              <li>UTI:er (Ullage, Temperature and Interface detector)</li>
+              <li>Temperaturmätutrustning</li>
+              <li>Tryckmätutrustning</li>
+              <li>Nivåmätutrustning</li>
+              <li>Flödesmätutrustning</li>
+              <li>Materialprovningsutrustning</li>
+              <li>Varvtalsutrustning</li>
+              <li>Registerande utrustning</li>
+            </ul>
+            <h3>Spårbar kalibrering enligt följande:</h3>
+            <ul>
+              <li>Spänning</li>
+              <li>Ström</li>
+              <li>Frekvens</li>
+              <li>Resistans</li>
+              <li>Temperatur</li>
+              <li>Tryck</li>
+              <li>Kraft</li>
+            </ul>
+          </div>
+        </section>
+        <section id="kunder">
+          <h2>Kunder</h2>
+          <div class="text-guides">
+            <h3>Våra kunder finns inom följande branscher:</h3>
+            <ul>
+              <li>Petrokemisk industri</li>
+              <li>Rederier och varvsindustri</li>
+              <li>Plastindustri</li>
+              <li>Verkstadsindustri</li>
+              <li>Bilindustri</li>
+              <li>Kraftdistribution</li>
+              <li>Livsmedelsindustri</li>
+            </ul>
+          </div>
+          <div class="image-container kalibrerad">
+            <Image
+              src={kalibreringsKlistermarke}
+              alt="Kalibreringsklistermärke"
+            />
+          </div>
+        </section>
+        <section id="om-oss">
+          <h2>Om oss</h2>
+          <div class="text-guides">
+            <p>
+              Instrumentkontroll grundades i augusti 1944 och vi har sedan dess
+              varit en pålitlig aktör inom reparation, underhållsservice och
+              kalibrering av elektriska mätinstrument samt
+              materialprovningsutrustningar. Vår expertis sträcker sig över
+              landbaserade och fartygsbaserade system. Vi bedriver vår
+              verksamhet från vår egen verkstad, vilket ger oss fullständig
+              kontroll över våra processer och resultat.
+            </p>
+            <p>
+              Vi är stolta över att vara en auktoriserad servicestation för
+              Honeywell Tanksystem Sa (CH). Vi erbjuder professionell
+              underhållsservice och kalibrering av dragprovningsutrustning och
+              materialprovningsutrustning från Lloyd Instruments Ltd (GB).
+              Utöver detta har vi lång erfarenhet av att arbeta med en mängd
+              olika fabrikat och utrustningar som finns på marknaden. Det
+              inkluderar styr- och reglerutrustningar samt registrerade
+              instrument och mätloop.
+            </p>
+            <p>
+              Vi strävar alltid efter att erbjuda högkvalitativ service och
+              nöjda kunder är vår främsta prioritet. Vår kompetenta personal är
+              dedikerad till att lösa problem, utföra reparationer och genomföra
+              kalibreringar med stor noggrannhet. Vi är stolta över vårt rykte
+              för pålitlighet och professionalism inom branschen.
+            </p>
+            <p>
+              Oavsett om du behöver reparation, underhåll eller kalibrering, kan
+              du lita på Instrumentkontroll för att leverera pålitliga och
+              effektiva lösningar. Vi ser fram emot att få hjälpa dig med dina
+              behov inom elektriska mätinstrument och
+              materialprovningsutrustningar.
+            </p>
+          </div>
+        </section>
+        <section id="kontakt">
+          <h2>Kontakt</h2>
+          <div class="text-guides">
+            <div class="flex-container">
+              <div class="kontakt__adress">
+                <h3>Kontaktuppgifter</h3>
+                <dl>
+                  <dt>Besöksadress</dt>
+                  <dd>Varholmsgatan 1, 414 74 Göteborg</dd>
+                  <dt>E-post</dt>
+                  <dd>info@instrumentkontroll.se</dd>
+                  <dt>Telefon</dt>
+                  <dd>031-24 05 10</dd>
+                  <dt>Mobil</dt>
+                  <dd>076-17 23 063</dd>
+                </dl>
+              </div>
+              <div class="kontakt__form">
+                <h3>Skicka en förfrågan</h3>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="2ac908bb-24cb-4f96-8855-52e277c750d8"
+                  />
+                  <input
+                    type="hidden"
+                    name="subject"
+                    value="Ny förfrågan från instrumentkontroll.se"
+                  />
+                  <input
+                    type="hidden"
+                    name="redirect"
+                    value="https://web3forms.com/success"
+                  />
+                  <div class="form-field">
+                    <label for="form-name">Namn *</label>
+                    <input id="form-name" type="text" name="name" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="form-email">E-postadress *</label>
+                    <input id="form-email" type="email" name="email" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="form-tel">Telefonnummer</label>
+                    <input id="form-tel" type="text" name="phone" />
+                  </div>
+                  <div class="form-field">
+                    <label for="form-freetext">Fråga *</label>
+                    <textarea
+                      id="form-freetext"
+                      name="message"
+                      rows="5"
+                      required></textarea>
+                  </div>
+                  <div class="form-field">
+                    <p class="text-small">
+                      Fält med * är nödvändiga att fylla i
+                    </p>
+                  </div>
+                  <div class="form-field">
+                    <div class="h-captcha" data-captcha="true"></div>
+                  </div>
+                  <div class="form-field">
+                    <button type="submit">Skicka</button>
+                  </div>
+                </form>
+              </div>
             </div>
-        </main>
-        </div>
-    </div>
+            <hr />
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe
+                  class="gmap_iframe"
+                  width="100%"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                  src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Instrumentkontroll Bessmann AB, Varholmsgatan, Göteborg&t=&z=12&ie=UTF8&iwloc=B&output=embed"
+                ></iframe>
+              </div>
+              <style>
+                .mapouter {
+                  position: relative;
+                  text-align: right;
+                  max-width: 100%;
+                  height: 400px;
+                }
+                .gmap_canvas {
+                  overflow: hidden;
+                  background: none !important;
+                  width: 100%;
+                  height: 400px;
+                }
+                .gmap_iframe {
+                  height: 400px !important;
+                }
+              </style>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <p class="text-small">
+            Copyright 2023 © Instrumentkontroll Bessmann AB - Alla rättigheter
+            förbehålles
+          </p>
+        </footer>
+      </div>
+    </main>
+  </div>
 </Layout>
 
-<style>
-	.main-grid {
-		display: grid;
-		grid-template-areas:
-			"header main"
-		;
-		grid-template-columns: minmax(min-content, max-content) auto;
-	}
-	header {
-		align-items: center;
-		background-color: var(--indigo-12);
-		display: flex;
-		flex-direction: column;
-		max-height: 100vh;
-		padding: var(--size-5);
-		position: sticky;
-		grid-area: header;
-		top: 0;
-		overflow: auto;
-		z-index: 1;
-	}
-	.logo {
-		aspect-ratio: 1/1;
-		background-color: var(--indigo-11);
-		border-radius: var(--size-3);
-		padding: var(--size-3);
-		width: 100%;
-	}
-	.primary-nav {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		list-style-type: none;
-		padding: 0;
-	}
-	.primary-nav li {
-		padding: 0;
-	}
-	.primary-nav a {
-		align-items: center;
-		background-color: var(--indigo-11);
-		border: 1px solid var(--gray-0);
-		border-radius: 0.125rem;
-		box-shadow: 
-			0 0.125rem 0 0 var(--gray-0)
-		;
-		color: var(--gray-0);
-		display: flex;
-		font-weight: 700;
-		padding: var(--size-3);
-		padding-inline-start: var(--size-7);
-		position: relative;
-		text-decoration: none;
-		text-transform: uppercase;
-		transition: all 0.1s ease;
-	}
-	.primary-nav a:hover {
-		background-color: var(--indigo-9);
-		box-shadow: 
-			0 0.25rem 0 0 var(--gray-0)
-		;
-		text-decoration: underline;
-		text-decoration-color: var(--red-5);
-		text-decoration-thickness: var(--size-1);
-		text-underline-offset: var(--size-1);
-		transform: translateY(-0.125em);
-	}
-	.primary-nav a:active {
-		background-color: var(--indigo-11);
-		transform: translateY(0.125em);
-		box-shadow: none;
-	}
-	.primary-nav a::before {
-		border-width: 2.5rem 2.5rem 0px 0px;
-		border-style: solid;
-		border-color: var(--brown-1) transparent transparent var(--brown-1);
-		content: "";
-		left: 0;
-		position: absolute;
-		top: 0;
-	}
-	.primary-nav a::after {
-		color: var(--stone-12);
-		content: attr(data-list-no);
-		font-family: var(--font-mono);
-		font-size: var(--font-size-0);
-		font-weight: 400;
-		height: var(--size-6);
-		position: absolute;
-		top: 0.125rem;
-		left: 0.25rem;
-	}
-	.primary-nav a:hover::before {
-		text-decoration: none;
-	}
-	main {
-		grid-area: main;
-	}
-	main::before {
-		background-blend-mode: hard-light;
-		background-color: hsl(var(--gray-2-hsl) / 10%);
-		content: "";
-		opacity: 0.6;
-		background-image: 
-			linear-gradient(var(--gray-2) 2.8000000000000003px,transparent 2.8000000000000003px),
-			linear-gradient(90deg, var(--gray-2) 2.8000000000000003px, transparent 2.8000000000000003px),
-			linear-gradient(var(--gray-2) 1.4000000000000001px, transparent 1.4000000000000001px),
-			linear-gradient(90deg, var(--gray-2) 1.4000000000000001px, transparent 1.4000000000000001px)
-			;
-		background-size: 70px 70px, 70px 70px, 14px 14px, 14px 14px;
-		background-position: -2.8000000000000003px -2.8000000000000003px, -2.8000000000000003px -2.8000000000000003px, -1.4000000000000001px -1.4000000000000001px, -1.4000000000000001px -1.4000000000000001px;
-		position: fixed;
-		inset: 0;
-	}
-	.main-content-wrapper {
-		isolation: isolate;
-		z-index: 1;
-	}
-	section#start, section#om-oss, section#tjanster, section#kunder, section#kontakt {
-		height: 100dvh;
-		margin: 0 auto;
-		padding: var(--size-fluid-3);
-	}
-	section::after {
-		block-size: 2rem;
-	}
-	section#start {
-		align-items: center;
-		background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.3)), 
-			url('./images/ibrahim-boran-iYkqHp5cGQ4-unsplash.jpg');
-		background-attachment: fixed;
-		background-size: cover;
-		color: var(--gray-1);
-		display: flex;
-		font-family: var(--font-display);
-		flex-direction: column;
-		justify-content: space-around;
-		padding: var(--size-fluid-5);
-		position: relative;
-		text-align: center;
-	}
-	section#start h1 {
-		font-size: var(--step-5);
-		font-weight: 400;
-		text-shadow: 0 0 2rem var(--gray-12);
-		max-width: 35ch;
-		text-align: center;
-	}
-	section#start p {
-		font-size: var(--step-2);
-		line-height: var(--font-lineheight-1);
-		max-width: 65ch;
-		text-shadow: 0 0 2rem var(--gray-12);
-	}
-	.image-container {
-		overflow: hidden;
-	}
-	.image-container img {
-		aspect-ratio: var(--ratio-widescreen);
-		object-fit: cover;
-		object-position: 0 20%;
-		width: 80%;
-	}
+<style is:global>
+  .main-grid {
+    display: grid;
+    grid-template-areas: 'header main';
+    grid-template-columns: minmax(min-content, max-content) auto;
+  }
+  header {
+    align-items: center;
+    background-color: var(--indigo-12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100vh;
+    padding: var(--size-5);
+    position: sticky;
+    grid-area: header;
+    top: 0;
+    overflow: auto;
+    z-index: 1;
+  }
+  .logo {
+    aspect-ratio: 1/1;
+    background-color: var(--indigo-11);
+    border-radius: var(--size-3);
+    padding: var(--size-3);
+    width: 100%;
+  }
+  .nav__items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+  }
+  .nav__items li {
+    padding: 0;
+  }
+  .nav__items a {
+    align-items: center;
+    background-color: var(--indigo-11);
+    border: 1px solid var(--gray-0);
+    border-radius: 0.125rem;
+    box-shadow: 0 0.125rem 0 0 var(--gray-0);
+    color: var(--gray-0);
+    display: flex;
+    font-weight: 700;
+    padding: var(--size-3);
+    padding-inline-start: var(--size-7);
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+  }
+  .nav__items a:hover {
+    background-color: var(--indigo-9);
+    box-shadow: 0 0.25rem 0 0 var(--gray-0);
+    text-decoration: underline;
+    text-decoration-color: var(--red-5);
+    text-decoration-thickness: var(--size-1);
+    text-underline-offset: var(--size-1);
+    transform: translateY(-0.125em);
+  }
+  .nav__items a:active {
+    background-color: var(--indigo-11);
+    transform: translateY(0.125em);
+    box-shadow: none;
+  }
+  .nav__items a::before {
+    border-width: 2.5rem 2.5rem 0px 0px;
+    border-style: solid;
+    border-color: var(--brown-1) transparent transparent var(--brown-1);
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .nav__items a::after {
+    color: var(--stone-12);
+    content: attr(data-list-no);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-0);
+    font-weight: 400;
+    height: var(--size-6);
+    position: absolute;
+    top: 0.125rem;
+    left: 0.25rem;
+  }
+  .nav__items a:hover::before {
+    text-decoration: none;
+  }
+  main {
+    grid-area: main;
+  }
+  main::before {
+    background-blend-mode: hard-light;
+    background-color: hsl(var(--gray-2-hsl) / 10%);
+    content: '';
+    opacity: 0.6;
+    background-image: linear-gradient(
+        var(--gray-2) 2.8000000000000003px,
+        transparent 2.8000000000000003px
+      ),
+      linear-gradient(
+        90deg,
+        var(--gray-2) 2.8000000000000003px,
+        transparent 2.8000000000000003px
+      ),
+      linear-gradient(
+        var(--gray-2) 1.4000000000000001px,
+        transparent 1.4000000000000001px
+      ),
+      linear-gradient(
+        90deg,
+        var(--gray-2) 1.4000000000000001px,
+        transparent 1.4000000000000001px
+      );
+    background-size:
+      70px 70px,
+      70px 70px,
+      14px 14px,
+      14px 14px;
+    background-position:
+      -2.8000000000000003px -2.8000000000000003px,
+      -2.8000000000000003px -2.8000000000000003px,
+      -1.4000000000000001px -1.4000000000000001px,
+      -1.4000000000000001px -1.4000000000000001px;
+    position: fixed;
+    inset: 0;
+  }
+  .main-content-wrapper {
+    isolation: isolate;
+    z-index: 1;
+  }
+  section h2 {
+    border-block-end: 1px solid currentColor;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+  section#start,
+  section#tjanster,
+  section#kunder,
+  section#om-oss,
+  section#kontakt {
+    min-height: 100dvh;
+    margin: 0 auto;
+    padding: var(--size-fluid-3);
+  }
+  section::after {
+    block-size: 2rem;
+  }
+  section#start {
+    align-items: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.3)
+      ),
+      url('../images/ibrahim-boran-iYkqHp5cGQ4-unsplash.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--gray-1);
+    display: flex;
+    font-family: var(--font-display);
+    flex-direction: column;
+    justify-content: space-around;
+    padding: var(--size-fluid-5);
+    position: relative;
+    text-align: center;
+  }
+  section#start h1 {
+    font-size: var(--step-5);
+    font-weight: 400;
+    text-shadow: 0 0 2rem var(--gray-12);
+    max-width: 35ch;
+    text-align: center;
+  }
+  section#start p {
+    font-size: var(--step-2);
+    line-height: var(--font-lineheight-1);
+    max-width: 65ch;
+    text-shadow: 0 0 2rem var(--gray-12);
+  }
+  section#kunder .kalibrerad {
+    box-shadow: var(--shadow-6);
+    margin-block: var(--size-fluid-4);
+    margin-inline: auto var(--size-fluid-4);
+    transform: rotate(3deg);
+    width: 12rem;
+  }
+  section#kunder,
+  section#kontakt {
+    background-blend-mode: exclusion;
+    background-color: hsl(var(--indigo-12-hsl) / 90%);
+    background-image: linear-gradient(
+        var(--indigo-12) 2.8000000000000003px,
+        transparent 2.8000000000000003px
+      ),
+      linear-gradient(
+        90deg,
+        var(--indigo-12) 2.8000000000000003px,
+        transparent 2.8000000000000003px
+      ),
+      linear-gradient(
+        var(--indigo-12) 1.4000000000000001px,
+        transparent 1.4000000000000001px
+      ),
+      linear-gradient(
+        90deg,
+        var(--indigo-12) 1.4000000000000001px,
+        transparent 1.4000000000000001px
+      );
+    background-size:
+      70px 70px,
+      70px 70px,
+      14px 14px,
+      14px 14px;
+    background-position:
+      -2.8000000000000003px -2.8000000000000003px,
+      -2.8000000000000003px -2.8000000000000003px,
+      -1.4000000000000001px -1.4000000000000001px,
+      -1.4000000000000001px -1.4000000000000001px;
+    color: var(--gray-0);
+  }
+  .kontakt__form {
+    width: 50%;
+  }
+  .kontakt__form form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+  }
+  .kontakt__form input,
+  .kontakt__form textarea {
+    border: 3px solid;
+    padding: var(--size-1) var(--size-2);
+  }
+  .kontakt__form textarea {
+    resize: vertical;
+  }
+  .kontakt__form button {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: var(--size-1);
+    text-transform: uppercase;
+    color: var(--gray-11);
+    cursor: pointer;
+    border: 3px solid;
+    padding: var(--size-1) var(--size-2);
+    box-shadow:
+      1px 1px 0px 0px,
+      2px 2px 0px 0px,
+      3px 3px 0px 0px,
+      4px 4px 0px 0px,
+      5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: all 0.1s ease;
+  }
+  .kontakt__form button:active {
+    box-shadow: 0px 0px 0px 0px;
+    transform: translate(5px, 5px);
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-1);
+  }
+  .form-field label {
+    font-weight: 700;
+  }
+
+  .image-container {
+    display: block;
+    position: relative;
+  }
+  .image-container img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  .flex-container {
+    display: flex;
+    gap: var(--size-3);
+    justify-content: space-between;
+  }
+  footer {
+    font-family: var(--font-mono);
+    padding: var(--size-fluid-3);
+    text-align: center;
+  }
+
+  .header__mobile-toggle {
+    align-items: center;
+    display: none;
+    gap: var(--size-2);
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: var(--size-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--gray-11);
+    cursor: pointer;
+    border: 3px solid;
+    padding: var(--size-1) var(--size-2);
+    box-shadow:
+      1px 1px 0px 0px,
+      2px 2px 0px 0px,
+      3px 3px 0px 0px,
+      4px 4px 0px 0px,
+      5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: all 0.1s ease;
+  }
+
+  .header__mobile-toggle:active {
+    box-shadow: 0px 0px 0px 0px;
+    transform: translate(5px, 5px);
+  }
+
+  .mobile-toggle__icon--open,
+  .mobile-toggle__icon--close {
+    aspect-ratio: 1/1;
+    width: var(--size-4);
+  }
+  .mobile-toggle__icon--close,
+  .mobile-toggle__text--close {
+    display: none;
+  }
+
+  @media screen and (max-width: 47em) {
+    .main-grid {
+      grid-template-areas:
+        'header'
+        'main';
+      grid-template-rows: minmax(min-content, max-content) auto;
+    }
+    header {
+      display: flex;
+      grid-row: 1 / 2;
+      padding: var(--size-2);
+      width: 100%;
+    }
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    main {
+      grid-row: 1 / 3;
+    }
+    .logo {
+      height: 4rem;
+      padding: var(--size-1);
+      width: 4rem;
+    }
+    .nav__items {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      transition: all 0.1s ease;
+    }
+    .nav__items a {
+      font-size: var(--size-3);
+    }
+    .header__mobile-toggle {
+      display: flex;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    .translate-y-0 {
+      transform: translateY(0);
+      transition: transform 0.2s ease;
+    }
+    .translate-y-full {
+      display: none;
+      transform: translateY(-200%);
+    }
+    section:not(#start) {
+      scroll-margin-block-start: 10rem;
+    }
+    .flex-container {
+      flex-wrap: wrap;
+    }
+    .flex-container > * {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 33.5em) {
+    section:not(#start) {
+      scroll-margin-block-start: 15rem;
+    }
+  }
+
+  .display-none {
+    display: none;
+  }
+  .display-block {
+    display: block;
+  }
 </style>
