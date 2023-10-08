@@ -1,0 +1,39 @@
+--- 
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="sv_SE">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Instrumentkontroll Bessmann AB - Man blir som man mäter!">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<!-- Before anything, load Andy Bell's modern CSS Reset -->
+		<link rel="stylesheet" href="/src/styles/andy-bells-modern-reset.css">
+		<!-- Then load Adam Argyle's Open Props -->
+		<link rel="stylesheet" href="https://unpkg.com/open-props">
+		<link rel="stylesheet" href="https://unpkg.com/open-props/colors-hsl.min.css">
+		<!-- Fonts -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+		<!-- Typography -->
+		<link rel="stylesheet" href="/src/styles/typography.css">		
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root{
+		--font-mono: 'IBM Plex Mono', monospace;
+		--font-sans: 'IBM Plex Sans', sans-serif;
+		--font-display: 'IBM Plex Sans Condensed', sans-serif;
+	} 
+</style>  
