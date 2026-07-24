@@ -157,9 +157,6 @@ section#kontakt {
   margin: 0 auto;
   padding: var(--size-fluid-3);
 }
-section::after {
-  block-size: 2rem;
-}
 section#start {
   align-items: center;
   background-image: linear-gradient(
