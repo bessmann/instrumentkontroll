@@ -1,0 +1,10 @@
+baseURL = "https://instrumentkontroll.se/"
+languageCode = "sv"
+title = "Instrumentkontroll Bessmann AB"
+enableRobotsTXT = true
+
+# Single-page site: no taxonomies, terms, or RSS feed.
+disableKinds = ["taxonomy", "term", "rss"]
+
+[minify]
+  minifyOutput = true
